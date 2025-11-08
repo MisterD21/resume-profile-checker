@@ -45,7 +45,7 @@ The predicted category is displayed in the Streamlit interface.
 
 1️⃣ Clone the Repository
 
-git clone https://github.com/yourusername/ai-resume-classifier.git
+git clone https://github.com/MisterD21/resume-profile-checker.git
 cd ai-resume-classifier
 
 python -m venv .venv
