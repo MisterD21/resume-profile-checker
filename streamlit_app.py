@@ -5,7 +5,9 @@ from nltk.corpus import stopwords
 import os
 import nltk
 
-if not os.path.exists(os.path.join(nltk.data.find("corpora"), "stopwords")):
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
     nltk.download('stopwords')
 
 # 🧹 Cleaning function
