@@ -4,12 +4,6 @@ import re
 from nltk.corpus import stopwords
 import os
 import nltk
-import sklearn
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.multiclass import OneVsRestClassifier
-from sklearn.preprocessing import LabelEncoder
-
 
 try:
     nltk.data.find('corpora/stopwords')
@@ -45,15 +39,6 @@ if uploaded_file is not None:
     cleaned = clean_resume(text)
     st.subheader("✨ Cleaned Resume Text")
     st.text_area("Cleaned Content", cleaned, height=200)
-
-    le = LabelEncoder()
-    knn = OneVsRestClassifier(KNeighborsClassifier())
-    tfidf = TfidfVectorizer(stop_words='english')
-    predicted_label = knn.predict(tfidf.transform([cleaned]))
-    predicted_label_num = predicted_label[0]
-    # Convert numeric label back to original category name using the LabelEncoder
-    predicted_label_name = le.inverse_transform([predicted_label_num])[0]
-    st.text_area("Job Profile", predicted_label_name, height=10)
 
     # You can add AI analysis or skill extraction here
     st.success("✅ Resume processed successfully!")

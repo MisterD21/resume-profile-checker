@@ -3,4 +3,3 @@ pdfplumber
 nltk
 pandas
 numpy
-sklearn
