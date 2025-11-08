@@ -2,9 +2,11 @@ import streamlit as st
 import pdfplumber
 import re
 from nltk.corpus import stopwords
+import os
 import nltk
 
-nltk.download('stopwords')
+if not os.path.exists(os.path.join(nltk.data.find("corpora"), "stopwords")):
+    nltk.download('stopwords')
 
 # 🧹 Cleaning function
 def clean_resume(text):
